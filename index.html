@@ -6,140 +6,179 @@
   <title>Currículo - Marcelo Luiz dos Santos</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"/>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
-<!--
-Criado por: Marcelo Luiz
-Data: 17/04/2026  
--->
   <style>
+
+    /* ===== BODY =====
+       Define a cor de fundo da página inteira (cinza claro)
+       e a fonte padrão usada em todo o texto */
     body {
-      background-color: #f0f2f5;
-      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f2f5;       /* fundo cinza claro */
+      font-family: 'Segoe UI', sans-serif; /* fonte */
     }
 
+    /* ===== CABEÇALHO DO CARD =====
+       Cria o fundo escuro com degradê (gradiente) no topo do currículo
+       O "linear-gradient" faz a cor ir de um tom para outro suavemente */
     .card-header-custom {
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      color: white;
-      padding: 40px 30px;
-      border-radius: 12px 12px 0 0;
+      background: linear-gradient(135deg, #1a1a2e, #16213e); /* degradê azul escuro */
+      color: white;          /* texto branco */
+      padding: 40px 30px;    /* espaçamento interno: 40px em cima/baixo, 30px nas laterais */
+      border-radius: 12px 12px 0 0; /* arredonda só os cantos de cima */
     }
 
+    /* ===== FOTO DE PERFIL (tag <img>) =====
+       Define o tamanho, formato circular e borda branca da foto */
     .foto-perfil {
-      width: 130px;
-      height: 130px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 4px solid #fff;
-      background-color: #ccc;
+      width: 130px;          /* largura fixa */
+      height: 130px;         /* altura fixa (igual à largura = quadrado) */
+      object-fit: cover;     /* recorta a imagem para preencher sem distorcer */
+      border-radius: 50%;    /* 50% = transforma o quadrado em círculo */
+      border: 4px solid #fff; /* borda branca ao redor da foto */
+      background-color: #ccc; /* cor de fundo caso a imagem não carregue */
     }
 
+    /* ===== PLACEHOLDER DA FOTO (quando não há imagem) =====
+       Cria um círculo azul com ícone de pessoa no lugar da foto */
     .foto-placeholder {
       width: 130px;
       height: 130px;
-      border-radius: 50%;
-      border: 4px solid #fff;
-      background-color: #4a90d9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 48px;
-      color: white;
+      border-radius: 50%;          /* formato circular */
+      border: 4px solid #fff;      /* borda branca */
+      background-color: #4a90d9;   /* fundo azul */
+      display: flex;               /* ativa o flexbox para centralizar o ícone */
+      align-items: center;         /* centraliza verticalmente */
+      justify-content: center;     /* centraliza horizontalmente */
+      font-size: 48px;             /* tamanho do ícone */
+      color: white;                /* cor do ícone */
     }
 
+    /* ===== NOME NO CABEÇALHO =====
+       Estiliza o nome principal com tamanho grande e negrito */
     .nome-titulo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 4px;
+      font-size: 1.8rem;   /* tamanho grande (1rem = 16px, então 1.8rem = ~29px) */
+      font-weight: 700;    /* negrito forte */
+      margin-bottom: 4px;  /* pequeno espaço abaixo do nome */
     }
 
+    /* ===== CARGO NO CABEÇALHO =====
+       Estiliza o cargo com cor azul clara e peso normal */
     .cargo-titulo {
       font-size: 1rem;
-      color: #a0c4ff;
-      font-weight: 400;
+      color: #a0c4ff;    /* azul claro para contrastar com o fundo escuro */
+      font-weight: 400;  /* peso normal (não negrito) */
     }
 
+    /* ===== TÍTULO DE CADA SEÇÃO =====
+       Cria o estilo dos títulos como "Dados Pessoais", "Experiências" etc.
+       A barra azul à esquerda é feita com border-left */
     .secao-titulo {
       font-size: 1rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #1a1a2e;
-      border-left: 4px solid #4a90d9;
-      padding-left: 10px;
-      margin-bottom: 16px;
+      text-transform: uppercase;  /* deixa o texto em MAIÚSCULAS */
+      letter-spacing: 1px;        /* espaçamento entre letras */
+      color: #1a1a2e;             /* cor azul escuro */
+      border-left: 4px solid #4a90d9; /* barra azul à esquerda */
+      padding-left: 10px;         /* espaço entre a barra e o texto */
+      margin-bottom: 16px;        /* espaço abaixo do título */
     }
 
+    /* ===== CARD PRINCIPAL DO CURRÍCULO =====
+       Remove a borda padrão do Bootstrap, arredonda os cantos
+       e adiciona sombra para dar profundidade */
     .card-curriculo {
-      border: none;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-      overflow: hidden;
+      border: none;          /* remove borda padrão */
+      border-radius: 12px;   /* cantos arredondados */
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12); /* sombra suave embaixo do card */
+      overflow: hidden;      /* esconde qualquer conteúdo que saia dos cantos arredondados */
     }
 
+    /* ===== ITENS DE INFORMAÇÃO (endereço, etc.) =====
+       Organiza ícone + texto lado a lado com espaçamento */
     .info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      margin-bottom: 8px;
+      display: flex;          /* coloca ícone e texto na mesma linha */
+      align-items: flex-start; /* alinha pelo topo */
+      gap: 10px;              /* espaço entre o ícone e o texto */
+      margin-bottom: 8px;     /* espaço entre cada item */
       font-size: 0.95rem;
-      color: #444;
+      color: #444;            /* cinza escuro */
     }
 
+    /* ===== ÍCONE DENTRO DO INFO-ITEM =====
+       Colore o ícone de azul e garante largura mínima */
     .info-item i {
-      color: #4a90d9;
-      margin-top: 3px;
-      min-width: 16px;
+      color: #4a90d9;    /* azul */
+      margin-top: 3px;   /* pequeno ajuste vertical */
+      min-width: 16px;   /* garante que o ícone não encolha */
     }
 
+    /* ===== BADGES DE HABILIDADES =====
+       Cria as "pílulas" (tags arredondadas) de cada tecnologia */
     .badge-skill {
-      background-color: #e8f0fe;
-      color: #1a1a2e;
-      border: 1px solid #c5d8f8;
+      background-color: #e8f0fe; /* fundo azul bem claro */
+      color: #1a1a2e;            /* texto azul escuro */
+      border: 1px solid #c5d8f8; /* borda azul clara */
       font-size: 0.82rem;
-      padding: 5px 12px;
-      border-radius: 20px;
+      padding: 5px 12px;         /* espaçamento interno da pílula */
+      border-radius: 20px;       /* arredondamento total = formato de pílula */
       font-weight: 500;
     }
 
+    /* ===== CARD DE EXPERIÊNCIA =====
+       Cria a linha azul vertical à esquerda de cada experiência */
     .exp-card {
-      border-left: 3px solid #4a90d9;
-      padding-left: 16px;
-      margin-bottom: 20px;
+      border-left: 3px solid #4a90d9; /* linha azul à esquerda */
+      padding-left: 16px;             /* espaço entre a linha e o conteúdo */
+      margin-bottom: 20px;            /* espaço entre experiências */
     }
 
+    /* ===== NOME DA EMPRESA =====
+       Texto pequeno em azul acima do cargo */
     .exp-card .empresa {
       font-size: 0.85rem;
-      color: #4a90d9;
-      font-weight: 600;
+      color: #4a90d9;    /* azul */
+      font-weight: 600;  /* semi-negrito */
     }
 
+    /* ===== CARGO DA EXPERIÊNCIA =====
+       Texto do cargo em negrito e cor escura */
     .exp-card .cargo-exp {
       font-size: 1rem;
-      font-weight: 700;
+      font-weight: 700;  /* negrito */
       color: #1a1a2e;
     }
 
+    /* ===== DESCRIÇÃO DA EXPERIÊNCIA =====
+       Texto descritivo menor e em cinza */
     .exp-card .descricao {
       font-size: 0.9rem;
-      color: #555;
+      color: #555;       /* cinza médio */
       margin-top: 4px;
     }
 
+    /* ===== LINHA DIVISÓRIA =====
+       Linha horizontal cinza clara que separa seções */
     .divider {
-      border-top: 1px solid #e0e0e0;
-      margin: 24px 0;
+      border-top: 1px solid #e0e0e0; /* linha fina cinza */
+      margin: 24px 0;                /* espaço acima e abaixo */
     }
 
+    /* ===== SIDEBAR (coluna esquerda) =====
+       Fundo levemente diferente e borda direita para separar do conteúdo */
     .sidebar {
-      background-color: #f7f9fc;
-      border-right: 1px solid #e8edf3;
+      background-color: #f7f9fc;       /* fundo quase branco */
+      border-right: 1px solid #e8edf3; /* linha divisória à direita */
     }
 
+    /* ===== RESPONSIVIDADE DA SIDEBAR =====
+       Em telas pequenas (celular), remove a borda direita
+       e coloca uma borda embaixo no lugar */
     @media (max-width: 767px) {
       .sidebar {
-        border-right: none;
-        border-bottom: 1px solid #e8edf3;
+        border-right: none;              /* remove borda lateral */
+        border-bottom: 1px solid #e8edf3; /* coloca borda embaixo */
       }
     }
+
   </style>
 </head>
 <body>
